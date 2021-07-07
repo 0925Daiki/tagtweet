@@ -4,11 +4,12 @@
 # database design
 ## tweets table
 ### association
-- 
+- has_many :tweet_tag_relations
+- has_many :tags, through: :tweet_tag_relations
 
 ## tags table
 ### association
-- 
+
 
 ## tweet_tag_relations
 ### association
