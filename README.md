@@ -9,8 +9,10 @@
 
 ## tags table
 ### association
-
+- has_many :tweet_tag_relations
+- has_many :tweets, through: :tweet_tag_relations
 
 ## tweet_tag_relations
 ### association
-- 
+- belongs_to :tweet
+- belongs_to :tag
