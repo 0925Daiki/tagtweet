@@ -10,6 +10,7 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = TweetsTag.new(tweet_params)
+    ## 「もしデータベースに保存できたらトップページへ、保存できなければ再度newアクションが起動する」
     if @tweet.valid?
       @tweet.save
       return redirect_to root_path
