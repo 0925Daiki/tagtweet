@@ -5,13 +5,13 @@ class TweetsController < ApplicationController
   end
 
   def new
-    @tweet = TweetTag.new
+    @tweet = TweetsTag.new
   end
 
   def create
     @tweet = TweetsTag.new(tweet_params)
     ## 「もしデータベースに保存できたらトップページへ、保存できなければ再度newアクションが起動する」
-    if @tweet.valid?
+    if @tweet.message
       @tweet.save
       return redirect_to root_path
     else
@@ -22,7 +22,7 @@ class TweetsController < ApplicationController
   private
 
   def tweet_params
-    params.require(:tweets_tag).parmit(:message, :name)
+    params.require(:tweets_tag).permit(:message, :name)
   end
 
 end
